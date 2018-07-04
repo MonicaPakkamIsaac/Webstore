@@ -1,0 +1,9 @@
+{% extends 'storeapp/base.html' %}
+
+{% block body_block %}
+    {% if msg %}
+        {% csrf_token %}
+        <p>{{ msg }}</p>
+    {% endif %}
+    <a href = "{% url 'storeapp:place_order' %}">&lt;&lt;&lt;Continue Shopping</a>
+{% endblock %}
