@@ -1,0 +1,15 @@
+{% extends 'storeapp/base.html' %}
+
+{% block body_block %}
+    {% if prodlist %}
+        <h2>List of Products</h2>
+        <ol>
+            {% for prod in prodlist %}
+                <li><a href="{% url 'storeapp:productdetail' prod.id %}">{{ prod.name }}</a></li>
+            {%  endfor %}
+        </ol>
+    {% else %}
+        <p>There are no products</p>
+    {% endif %}
+    <a href = "{% url 'storeapp:place_order' %}">To place an order</a>
+{% endblock %}
