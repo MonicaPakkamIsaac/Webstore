@@ -33,3 +33,25 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Client(User):
+    PROVINCE_CHOICES = [
+        ('AB', 'Alberta'),
+        ('MB', 'Manitoba'),
+        ('ON', 'Ontario'),
+        ('QC', 'Quebec'),
+    ]
+
+    company = models.CharField(max_length=50, null=True, blank=True)
+    shipping_address = models.CharField(max_length=300, null=True, blank=True)
+    city = models.CharField(max_length=20, default='Windsor')
+    province = models.CharField(max_length=2, choices=PROVINCE_CHOICES, default='ON')
+    interested_in = models.ManyToManyField(Category)
+    image = models.ImageField(null=True, blank=True, upload_to='display_picture')
+
+    def __str__(self):
+        return self.first_name + " " + self.last_name
+
+    def get_interests(self):
+        return ",".join([str(p) for p in self.interested_in.all()])
