@@ -1,0 +1,23 @@
+{% extends 'storeapp/base.html' %}
+
+{% block body_block %}
+    {% if prodlist %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Place Order">
+        </form>
+        <h4>List of Products</h4>
+        <table>
+        <tr><td><b>NAME</b></td><td><b>PRICE</b></td></tr>
+            {% for prod in prodlist %}
+                <tr>
+                    <td>{{ prod.name }}</td>
+                    <td> {{ prod.price }} </td>
+                </tr>
+            {%  endfor %}
+        </table>
+    {% else %}
+        <p>There are no products</p>
+    {% endif %}
+{% endblock %}
