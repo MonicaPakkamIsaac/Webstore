@@ -1,0 +1,10 @@
+{% extends 'storeapp/base.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="5;url={% url 'storeapp:login' %}">
+{% endblock %}
+
+{% block body_block %}
+    <h3>Invalid username/password<br>Try again with the correct combination</h3><br><br>
+    <p><i>You will redirected to the login page in few seconds...</i></p>
+{% endblock %}
