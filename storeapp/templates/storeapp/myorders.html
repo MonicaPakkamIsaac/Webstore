@@ -1,0 +1,22 @@
+{% extends 'storeapp/base.html' %}
+
+{% block body_block %}
+    {% if code %}
+        {% if orders %}
+            <h4>Your Orders so far..!</h4><br>
+            <table class="table">
+            <tr><td><b>Product</b></td><td><b>Num of Units</b></td></tr>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.product.name }}</td>
+                        <td> {{ order.num_units }} </td>
+                    </tr>
+                {%  endfor %}
+            </table>
+        {% else %}
+            <h2>No orders yet..!</h2>
+        {% endif %}
+    {% else %}
+        <h2>You are not a Registered Client!</h2>
+    {% endif %}
+{% endblock %}
