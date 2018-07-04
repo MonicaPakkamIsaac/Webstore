@@ -2,6 +2,7 @@ from .models import Category, Product, Client, Order
 from django.shortcuts import get_object_or_404, render, redirect
 from storeapp.forms import OrderForm, InterestForm
 from django.urls import reverse
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 import datetime
 
@@ -82,3 +83,19 @@ def productdetail(request, prod_id):
     else:
         form = InterestForm()
         return render(request, 'storeapp/productdetail.html', {'form': form, 'prod': prod})
+
+    def user_login(request):
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('storeapp:index'))
+                else:
+                    return HttpResponse('Your account is disabled.')
+            else:
+                return render(request, 'storeapp/loginerror.html')
+        else:
+            return render(request, 'storeapp/login.html')
