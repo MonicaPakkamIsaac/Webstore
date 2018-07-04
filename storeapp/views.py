@@ -29,3 +29,8 @@ def detail(request, cat_no):
     query = get_object_or_404(Category, id=cat_no)
     pro_list = Product.objects.filter(category__id=cat_no)
     return render(request, 'storeapp/detail.html', {'query': query, 'pro_list': pro_list})
+
+
+def products(request):
+    prodlist = Product.objects.all().order_by('id')[:10]
+    return render(request, 'storeapp/products.html', {'prodlist': prodlist})
