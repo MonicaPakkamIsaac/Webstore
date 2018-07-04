@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Online Store APP - {% block title %}Welcome!{% endblock %}</title>
+        {% block meta %}{% endblock %}
+    </head>
+
+    <body>
+
+        <div>
+            <h1>{% block myhdg %}Hello {% endblock %}</h1>
+            {% block body_block %}*** {% endblock %}
+        </div>
+        <hr />
+        {% block nav %}
+        <div>
+            <ul>
+                <li class="nav"><a href="about">Find out about this site</a></li>
+                <li class="nav"><a href = "{% url 'storeapp:index' %}">Click here to return to main page</a></li>
+
+            </ul>
+        </div>
+        {% endblock %}
+    </body>
+</html>
