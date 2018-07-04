@@ -4,6 +4,8 @@ from storeapp.forms import OrderForm, InterestForm
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 import datetime
 
 # Create your views here.
@@ -84,7 +86,7 @@ def productdetail(request, prod_id):
         form = InterestForm()
         return render(request, 'storeapp/productdetail.html', {'form': form, 'prod': prod})
 
-    def user_login(request):
+def user_login(request):
         if request.method == 'POST':
             username = request.POST['username']
             password = request.POST['password']
@@ -99,3 +101,9 @@ def productdetail(request, prod_id):
                 return render(request, 'storeapp/loginerror.html')
         else:
             return render(request, 'storeapp/login.html')
+
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return render(request, 'storeapp/logout.html')
