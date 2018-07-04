@@ -1,0 +1,22 @@
+{% extends 'storeapp/base.html' %}
+
+{% block title %}Details{% endblock %}
+{% block body_block %}
+     {% if query %}
+        <h2>{{ query.name }}</h2><br>
+         <h4>WAREHOUSE : {{ query.warehouse }}</h4><br>
+        {% if pro_list %}
+            <h4>List of Products</h4>
+            <ul>
+                {% for pro  in pro_list %}
+                    <li>{{ pro }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no Products available for this Category!</strong>
+        {% endif %}
+    {% else %}
+        <strong>No category found</strong>
+    {% endif %}
+
+{% endblock %}
