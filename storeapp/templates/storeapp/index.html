@@ -1,0 +1,24 @@
+{% extends 'storeapp/base.html' %}
+
+{% block body_block %}
+    {% if cat_list %}
+        <h2>Categories</h2>
+        <ul>
+            {% for cat  in cat_list %}
+                <li> <a href="{% url 'storeapp:detail' cat.id %}">{{ cat.name }} </a></li>
+            {% endfor %}
+        </ul>
+        {% if pro_list %}
+            <h2>Top 5 Products(By Price)</h2>
+            <ul>
+                {% for pro  in pro_list %}
+                    <li> {{ pro}} </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no available Products!</strong>
+        {% endif %}
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+{% endblock %}
