@@ -68,3 +68,17 @@ def place_order(request):
     else:
         request.session['place_order'] = 'True'
         return HttpResponseRedirect(reverse('storeapp:login'))
+
+
+def productdetail(request, prod_id):
+    prod = Product.objects.get(id=prod_id)
+    if request.method == 'POST':
+        form = InterestForm(request.POST)
+        if form.is_valid():
+            if request.POST['interested'] == '1':
+                prod.interested = prod.interested + 1
+                prod.save()
+            return redirect('storeapp:index')
+    else:
+        form = InterestForm()
+        return render(request, 'storeapp/productdetail.html', {'form': form, 'prod': prod})
