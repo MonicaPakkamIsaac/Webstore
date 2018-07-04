@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+
+</head>
+<body>
+    <div>
+        <div>
+            <h1>Welcome</h1>
+            <h2>Log In</h2><br>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required><br><br>
+                <input type="password" name="password" placeholder="Password" required><br><br>
+                <input type="submit" value="LOG IN">
+            </form>
+            <a href="{% url 'storeapp:reset_password' %}">Forgot Password?</a>
+        </div>
+    </div>
+</body>
+</html>
