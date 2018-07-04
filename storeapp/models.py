@@ -55,3 +55,24 @@ class Client(User):
 
     def get_interests(self):
         return ",".join([str(p) for p in self.interested_in.all()])
+
+
+class Order(models.Model):
+    ORDER_CHOICES = [
+        (0, 'Order Cancelled'),
+        (1, 'Order Placed'),
+        (2, 'Order Shipped'),
+        (3, 'Order Delivered'),
+    ]
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    num_units = models.PositiveIntegerField(default=1)
+    order_status = models.IntegerField(choices=ORDER_CHOICES, default='1')
+    status_date = models.DateField(default=timezone.now)
+
+    def total_cost(self):
+        return '%d' % (self.product.price * self.num_units)
+
+    def __str__(self):
+        return '%s - %s/%s' % (self.client.username, self.product, self.status_date)
