@@ -1,5 +1,8 @@
 from .models import Category, Product, Client, Order
 from django.shortcuts import get_object_or_404, render, redirect
+from storeapp.forms import OrderForm, InterestForm
+from django.urls import reverse
+from django.http import HttpResponseRedirect, HttpResponse
 import datetime
 
 # Create your views here.
@@ -34,3 +37,34 @@ def detail(request, cat_no):
 def products(request):
     prodlist = Product.objects.all().order_by('id')[:10]
     return render(request, 'storeapp/products.html', {'prodlist': prodlist})
+
+
+def place_order(request):
+    if request.user.is_authenticated:
+        msg = ''
+        prodlist = Product.objects.all()
+        if request.method == 'POST':
+            form = OrderForm(request.POST)
+            if form.is_valid():
+                order = form.save(commit=False)
+                product = Product.objects.get(name=order.product.name)
+                if order.num_units <= order.product.stock:
+                    order.product.stock = order.product.stock - order.num_units
+                    product.stock = order.product.stock
+                    product.save()
+                    order.client = Client.objects.get(first_name=request.user.first_name)
+                    order.save()
+                    msg = 'Your order has been placed successfully.'
+                else:
+                    msg = 'We do not have sufficient stock to fill your order. Try Again later..'
+                    if order.product.stock <= 10:
+                        product.refill()
+                        product.save()
+                return render(request, 'storeapp/order_response.html', {'msg': msg})
+
+        else:
+            form = OrderForm()
+            return render(request, 'storeapp/placeorder.html', {'form': form, 'msg': msg, 'prodlist': prodlist})
+    else:
+        request.session['place_order'] = 'True'
+        return HttpResponseRedirect(reverse('storeapp:login'))
