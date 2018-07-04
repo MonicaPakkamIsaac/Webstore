@@ -1,0 +1,15 @@
+{% extends 'storeapp/base.html' %}
+
+{% block title %}About{% endblock %}
+{% block body_block %}
+    {% if content %}
+        <div>
+            <h3 >Number of visits: {{ visits }}</h3>
+        </div>
+        <div>
+            <h2>{{ content }}</h2>
+        </div>
+    {% else %}
+        <strong>There is no content available</strong>
+    {% endif %}
+{% endblock %}
