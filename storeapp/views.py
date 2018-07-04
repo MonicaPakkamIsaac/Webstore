@@ -2,7 +2,6 @@ from .models import Category, Product, Client, Order
 from django.shortcuts import get_object_or_404, render, redirect
 from storeapp.forms import OrderForm, InterestForm
 from django.urls import reverse
-from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -107,3 +106,12 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return render(request, 'storeapp/logout.html')
+
+
+def myorders(request):
+    if request.user.is_authenticated:
+        orders = Order.objects.filter(client__username=request.user)
+        return render(request, 'storeapp/myorders.html', {'orders': orders, 'code': True})
+    else:
+        request.session['my_orders'] = '1'
+        return HttpResponseRedirect(reverse('storeapp:login'))
