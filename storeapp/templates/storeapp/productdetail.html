@@ -1,0 +1,27 @@
+{% extends 'storeapp/base.html' %}
+
+{% block myhdg %}<h2>Product Details</h2>{% endblock %}
+{% block body_block %}
+    <hr>
+    {%  if prod %}
+        <h3>{{ prod.name }}</h3>
+        <div>
+        <h6>People interested - {{ prod.interested }}</h6>
+        <h6>Price : {{ prod.price }}</h6>
+        </div>
+        <div>
+        <form method="post">
+            {% csrf_token %}
+            <p>Are you Interested?</p>
+            {{ form.interested }}
+            <p>Comments:(Optional)</p>
+            {{ form.comments }}
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+    {% else %}
+        <p>Sorry! No product matches this ID</p>
+    {% endif %}
+    <a href = "{% url 'storeapp:place_order' %}">To place an order</a>
+{% endblock %}
