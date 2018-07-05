@@ -3,9 +3,9 @@ from django.shortcuts import get_object_or_404, render, redirect
 from storeapp.forms import OrderForm, InterestForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 import datetime
 
 # Create your views here.
@@ -127,3 +127,19 @@ def register(request):
     else:
         form = UserCreationForm()
         return render(request, 'storeapp/register.html', {'form': form})
+
+
+@login_required
+def password_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('storeapp:index')
+        else:
+            return render(request, 'storeapp/password.html', {'form': form, 'code': 1})
+    else:
+        form = PasswordChangeForm(user=request.user)
+        return render(request, 'storeapp/password.html', {'form': form, 'code': 0})
