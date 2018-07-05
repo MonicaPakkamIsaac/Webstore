@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 import datetime
 
 # Create your views here.
@@ -115,3 +116,14 @@ def myorders(request):
     else:
         request.session['my_orders'] = '1'
         return HttpResponseRedirect(reverse('storeapp:login'))
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'storeapp/register.html', {'confirm': "Successfully Registered...!"})
+    else:
+        form = UserCreationForm()
+        return render(request, 'storeapp/register.html', {'form': form})
