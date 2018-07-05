@@ -1,6 +1,6 @@
 from .models import Category, Product, Client, Order
 from django.shortcuts import get_object_or_404, render, redirect
-from storeapp.forms import OrderForm, InterestForm
+from storeapp.forms import OrderForm, InterestForm, EditProfileForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
@@ -143,3 +143,15 @@ def password_change(request):
     else:
         form = PasswordChangeForm(user=request.user)
         return render(request, 'storeapp/password.html', {'form': form, 'code': 0})
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('storeapp:profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'storeapp/profile_edit.html', {'form': form})
