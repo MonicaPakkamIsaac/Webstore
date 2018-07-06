@@ -3,11 +3,20 @@
 {% block title %}About{% endblock %}
 {% block body_block %}
     {% if content %}
-        <div>
+        <div class="float-lg-right">
             <h3 >Number of visits: {{ visits }}</h3>
         </div>
-        <div>
+        <div class="container">
             <h2>{{ content }}</h2>
+            <p>A global marketplace for unique and creative goods. It’s home to a universe of special, extraordinary items, from unique pieces to vintage treasures.</p>
+            <h3>Contact Us:</h3>
+            <p>232 Josephine Avenue<br>
+                windsor<br>
+                N9B2K8</p>
+
+            <p>Phone: (519) 996-6077<br>
+            Toll-free: 519-996-9559<br>
+            Fax: (519) 981-6630</p>
         </div>
     {% else %}
         <strong>There is no content available</strong>
