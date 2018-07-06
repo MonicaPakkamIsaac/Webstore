@@ -21,4 +21,5 @@ urlpatterns = [
     path(r'reset-password/', password_reset, {'post_reset_redirect': 'storeapp:password_reset_done', 'email_template_name': 'storeapp/reset_email.html'}, name='reset_password'),
     path(r'reset-password/done', password_reset_done, {'template_name': 'storeapp/reset_done.html'}, name='password_reset_done'),
     path(r'reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)', password_reset_confirm, name='password_reset_confirm'),
+    path(r'reset/complete', password_reset_complete, name='password_reset_complete'),
     ]
