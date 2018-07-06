@@ -7,7 +7,7 @@
          <h4>WAREHOUSE : {{ query.warehouse }}</h4><br>
         {% if pro_list %}
             <h4>List of Products</h4>
-            <ul>
+            <ul class="list-group-item-light">
                 {% for pro  in pro_list %}
                     <li>{{ pro }}</li>
                 {% endfor %}
