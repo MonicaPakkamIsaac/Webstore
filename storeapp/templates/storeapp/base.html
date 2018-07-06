@@ -3,23 +3,40 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'storeapp/bootstrap.css' %}" />
         <title>Online Store APP - {% block title %}Welcome!{% endblock %}</title>
         {% block meta %}{% endblock %}
     </head>
 
     <body>
+        <div class="container">
+            <ul class="navbar">
 
-        <div>
-            <h1>{% block myhdg %}Hello {% endblock %}</h1>
+                {% if request.user.is_authenticated %}
+                     <li class="nav"><a href = "{% url 'storeapp:myorders' %}">My Orders</a></li>
+                     <li class="nav">{%  block prof_link %}<a href = "{% url 'storeapp:profile' %}">Profile</a>{% endblock %}</li>
+                     <li class="nav"><a href = "{% url 'storeapp:logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="nav"><a href = "{% url 'storeapp:login' %}">Login</a></li>
+                    <li class="nav"><a href = "{% url 'storeapp:register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <hr class="navbar-dark">
+        <div class="container">
+            {% if request.user.is_authenticated %}
+            <h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
+            {% endif %}
             {% block body_block %}*** {% endblock %}
         </div>
         <hr />
         {% block nav %}
-        <div>
-            <ul>
+        <div class="container">
+            <ul class="navbar">
                 <li class="nav"><a href="about">Find out about this site</a></li>
                 <li class="nav"><a href = "{% url 'storeapp:index' %}">Click here to return to main page</a></li>
                 <li class="nav"><a href = "{% url 'storeapp:products' %}">Products</a></li>
+
             </ul>
         </div>
         {% endblock %}
