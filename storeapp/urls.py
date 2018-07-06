@@ -19,4 +19,5 @@ urlpatterns = [
     path(r'password_change', views.password_change, name='password_change'),
     path(r'edit-profile', views.edit_profile, name='edit-profile'),
     path(r'reset-password/', password_reset, {'post_reset_redirect': 'storeapp:password_reset_done', 'email_template_name': 'storeapp/reset_email.html'}, name='reset_password'),
+    path(r'reset-password/done', password_reset_done, {'template_name': 'storeapp/reset_done.html'}, name='password_reset_done'),
     ]
