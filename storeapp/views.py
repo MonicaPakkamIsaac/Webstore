@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 import datetime
 
 # Create your views here.
@@ -39,10 +39,13 @@ def about(request):
     return response
 
 
-def detail(request, cat_no):
-    query = get_object_or_404(Category, id=cat_no)
-    pro_list = Product.objects.filter(category__id=cat_no)
-    return render(request, 'storeapp/detail.html', {'query': query, 'pro_list': pro_list})
+class Detail(TemplateView):
+    template_name = 'storeapp/detail.html'
+
+    def get(self, request, cat_no):
+        query = get_object_or_404(Category, id=cat_no)
+        pro_list = Product.objects.filter(category__id=cat_no)
+        return render(request, 'storeapp/detail.html', {'query': query, 'pro_list': pro_list})
 
 
 def products(request):

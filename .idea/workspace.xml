@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="397efb3e-af9c-4962-ad6d-797334a5f6dc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="397efb3e-af9c-4962-ad6d-797334a5f6dc" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +17,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/storeapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+            <state relative-caret-position="207">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -90,7 +88,6 @@
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/myorders.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/login.html" />
         <option value="$PROJECT_DIR$/storeapp/urls.py" />
-        <option value="$PROJECT_DIR$/storeapp/views.py" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/profile.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/register.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/password.html" />
@@ -98,6 +95,7 @@
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/reset_email.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/reset_done.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/base.html" />
+        <option value="$PROJECT_DIR$/storeapp/views.py" />
       </list>
     </option>
   </component>
@@ -229,6 +227,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073206" side_tool="true" weight="0.3286385" />
@@ -673,8 +672,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/storeapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+        <state relative-caret-position="207">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
