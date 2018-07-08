@@ -1,14 +1,15 @@
 from django.urls import path
 from django.conf.urls import url
 from storeapp import views
+from storeapp.views import Index, Detail
 from django.contrib.auth.views import password_reset, password_reset_complete, password_reset_done, password_reset_confirm
 
 app_name = 'storeapp'
 
 urlpatterns = [
-    path(r'', views.index, name='index'),
+    path(r'', Index.as_view(), name='index'),
     path(r'about', views.about, name='about'),
-    path(r'<int:cat_no>', views.detail, name='detail'),
+    path(r'<int:cat_no>', Detail.as_view(), name='detail'),
     path(r'place_order', views.place_order, name='place_order'),
     path(r'products', views.products, name='products'),
     path(r'products/<int:prod_id>', views.productdetail, name='productdetail'),
