@@ -2,13 +2,19 @@
 
 {% block body_block %}
     {% if prodlist %}
+        {% if request.user.is_authenticated %}
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input class="btn btn-primary" type="submit" value="Place Order">
         </form>
+        {% else %}
+            <p>You are not Logged in..!</p>
+            <a href="{% url 'storeapp:login' %}">Click here</a> to Login
+        {% endif %}
+        <br>
         <h4>List of Products</h4>
-        <table>
+        <table class="table" >
         <tr><td><b>NAME</b></td><td><b>PRICE</b></td></tr>
             {% for prod in prodlist %}
                 <tr>
@@ -20,4 +26,5 @@
     {% else %}
         <p>There are no products</p>
     {% endif %}
+
 {% endblock %}
