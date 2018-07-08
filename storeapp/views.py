@@ -109,8 +109,11 @@ def user_login(request):
                         if request.session.get('my_orders', None):
                             del request.session['my_orders']
                             return HttpResponseRedirect(reverse('storeapp:myorders'))
-                    else:
-                        return HttpResponseRedirect(reverse('storeapp:index'))
+                        elif request.session.get('place_order', None):
+                            del request.session['place_order']
+                            return HttpResponseRedirect(reverse('storeapp:place_order'))
+                        else:
+                            return HttpResponseRedirect(reverse('storeapp:index'))
                 else:
                     return HttpResponse('Your account is disabled.')
             else:
