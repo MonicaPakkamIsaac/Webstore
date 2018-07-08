@@ -145,6 +145,11 @@ def password_change(request):
         return render(request, 'storeapp/password.html', {'form': form, 'code': 0})
 
 
+def profile(request):
+    prof = Client.objects.get(username=request.user)
+    return render(request, 'storeapp/profile.html', {'prof': prof})
+
+
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
