@@ -1,0 +1,48 @@
+{% extends 'storeapp/base.html' %}
+{%  block prof_link %}<a href = "{% url 'storeapp:password_change' %}">Change your password</a>{% endblock %}
+{% block myhdg %}{% endblock %}
+{% block body_block %}
+    <div>
+        <h1 class="text-center">Profile</h1>
+        <hr class="navbar-dark">
+        <div class="container">
+            {% if prof.image %}
+            <div><img class="nav" src="{{ prof.image.url }}" width="240"></div>
+        {% endif %}
+        <h2 class="nav"><a href="{% url 'storeapp:edit-profile' %}">Edit Profile</a></h2>
+        </div>
+        <br>
+        <div>
+            <table class="table table-borderless table-hover table-light">
+                <tr>
+                    <td>Username</td>
+                    <td>{{ prof.username }}</td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>{{ prof.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>{{ prof.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ prof.email }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ prof.shipping_address }}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>{{ prof.city }}</td>
+                </tr>
+                <tr>
+                    <td>Province</td>
+                    <td>{{ prof.province }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}
