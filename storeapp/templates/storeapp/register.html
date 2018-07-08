@@ -1,12 +1,13 @@
 {% extends 'storeapp/base.html' %}
 
 {% block body_block %}
-    <h2>Registration</h2>
+    <h2 class="text-center">Registration</h2>
+    <hr class="navbar-dark">
     {% if confirm %}
         <h3>{{ confirm }}</h3>
         <a href = "{% url 'storeapp:login' %}">&lt;&lt;&lt;Click here to Login</a>
     {% else %}
-        <div>
+        <div class="form-group">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
