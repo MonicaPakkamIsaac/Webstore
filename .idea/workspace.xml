@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="397efb3e-af9c-4962-ad6d-797334a5f6dc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="397efb3e-af9c-4962-ad6d-797334a5f6dc" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,11 +52,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
               <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order_response.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/order_response.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#191#195#0#HTML" expanded="true" />
+                <element signature="e#195#199#0#HTML" expanded="true" />
+                <element signature="e#199#203#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,9 +93,6 @@
       <list>
         <option value="$PROJECT_DIR$/storeapp/models.py" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/products.html" />
-        <option value="$PROJECT_DIR$/storeapp/templates/storeapp/productdetail.html" />
-        <option value="$PROJECT_DIR$/storeapp/templates/storeapp/placeorder.html" />
-        <option value="$PROJECT_DIR$/storeapp/templates/storeapp/order_response.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/myorders.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/loginerror.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/logout.html" />
@@ -102,6 +111,9 @@
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/index.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/about.html" />
         <option value="$PROJECT_DIR$/storeapp/templates/storeapp/detail.html" />
+        <option value="$PROJECT_DIR$/storeapp/templates/storeapp/productdetail.html" />
+        <option value="$PROJECT_DIR$/storeapp/templates/storeapp/placeorder.html" />
+        <option value="$PROJECT_DIR$/storeapp/templates/storeapp/order_response.html" />
       </list>
     </option>
   </component>
@@ -526,27 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/productdetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/placeorder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/order_response.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/myorders.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -686,10 +677,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/productdetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/placeorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storeapp/templates/storeapp/order_response.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#191#195#0#HTML" expanded="true" />
+            <element signature="e#195#199#0#HTML" expanded="true" />
+            <element signature="e#199#203#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
