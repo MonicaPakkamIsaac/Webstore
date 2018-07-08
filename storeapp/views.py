@@ -105,7 +105,12 @@ def user_login(request):
             if user:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect(reverse('storeapp:index'))
+                    if request.session:
+                        if request.session.get('my_orders', None):
+                            del request.session['my_orders']
+                            return HttpResponseRedirect(reverse('storeapp:myorders'))
+                    else:
+                        return HttpResponseRedirect(reverse('storeapp:index'))
                 else:
                     return HttpResponse('Your account is disabled.')
             else:
