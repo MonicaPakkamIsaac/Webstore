@@ -1,11 +1,13 @@
 {% extends 'storeapp/base.html' %}
 
 {% block body_block %}
+    {% if request.user.is_authenticated %}
     {% if form %}
         <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Update Info</button>
+                <button class="btn btn-info" type="submit">Update Info</button>
         </form>
+    {% endif %}
     {% endif %}
 {% endblock %}
