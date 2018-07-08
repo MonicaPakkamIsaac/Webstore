@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="397efb3e-af9c-4962-ad6d-797334a5f6dc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/storeapp/templates/storeapp/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/storeapp/templates/storeapp/detail.html" afterDir="false" />
-    </list>
+    <list default="true" id="397efb3e-af9c-4962-ad6d-797334a5f6dc" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
