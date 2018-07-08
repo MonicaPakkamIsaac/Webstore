@@ -6,15 +6,23 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.views.generic import ListView
 import datetime
 
 # Create your views here.
 
 
-def index(request):
-    cat_list = Category.objects.all().order_by('id')[:10]
-    pro_list = Product.objects.all().order_by('-price')[:5]
-    return render(request, 'storeapp/index.html', {'cat_list': cat_list, 'pro_list': pro_list})
+class Index(ListView):
+    model = Category, Product
+
+    def get(self, request):
+        cat_list = Category.objects.all().order_by('id')[:10]
+        pro_list = Product.objects.all().order_by('-price')[:5]
+        if 'last_login' not in request.session:
+            msg = 'Your last login was more than one hour ago'
+        else:
+            msg = request.session['last_login']
+        return render(request, 'storeapp/index.html', {'cat_list': cat_list, 'pro_list': pro_list, 'msg': msg})
 
 
 def about(request):
